@@ -22,7 +22,7 @@ export default function Home() {
             <span className="text-athletic-orange text-xs font-bold uppercase tracking-[0.3em]">2026 夏季训练营现已开放报名</span>
           </div>
           <h1 className="text-6xl md:text-9xl mb-8 leading-[0.9] font-black tracking-tighter">
-            开启你的<br />
+            开启您的<br />
             <span className="text-athletic-orange inline-block hover:skew-x-2 transition-transform cursor-default">职业橄榄球</span>梦想
           </h1>
           <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
