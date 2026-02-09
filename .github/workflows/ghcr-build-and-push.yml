@@ -84,5 +84,5 @@ jobs:
       # --- 直接写死 Webhook 地址和 Token ---
       - name: Trigger Coolify Redeploy
         run: |
-          curl --request GET 'https://trustbeez.com/api/v1/deploy?uuid=iscs8gc4og44g0kw04c8ggg8&force=true' \
+          curl --request GET 'http://20.55.88.188:8000/api/v1/deploy?uuid=iscs8gc4og44g0kw04c8ggg8&force=true' \
                --header 'Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313'

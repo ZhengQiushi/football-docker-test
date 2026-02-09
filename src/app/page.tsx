@@ -22,7 +22,7 @@ export default function Home() {
             <span className="text-athletic-orange text-xs font-bold uppercase tracking-[0.3em]">2026 夏季训练营现已开放报名</span>
           </div>
           <h1 className="text-6xl md:text-9xl mb-8 leading-[0.9] font-black tracking-tighter">
-            开启您的<br />
+            开启你们的<br />
             <span className="text-athletic-orange inline-block hover:skew-x-2 transition-transform cursor-default">职业橄榄球</span>梦想
           </h1>
           <p className="text-xl md:text-2xl mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -220,7 +220,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-black uppercase tracking-widest text-deep-blue/40 ml-4">姓名</label>
-                    <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:border-athletic-orange transition-colors" placeholder="您的姓名" required />
+                    <input type="text" className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:border-athletic-orange transition-colors" placeholder="你们的姓名" required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-black uppercase tracking-widest text-deep-blue/40 ml-4">电话</label>
@@ -237,7 +237,7 @@ export default function Home() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase tracking-widest text-deep-blue/40 ml-4">补充信息</label>
-                  <textarea className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:border-athletic-orange transition-colors h-32 resize-none" placeholder="告诉我们更多关于您的橄榄球背景..." />
+                  <textarea className="w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none focus:border-athletic-orange transition-colors h-32 resize-none" placeholder="告诉我们更多关于你们的橄榄球背景..." />
                 </div>
                 <button className="w-full bg-athletic-orange text-white py-6 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-orange-600 transition-all shadow-xl shadow-athletic-orange/20">
                   提交申请

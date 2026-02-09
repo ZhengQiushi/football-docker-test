@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "ELITE GRIDIRON | 职业美式橄榄球训练营",
-  description: "开启您的职业橄榄球梦想。加入精英美式橄榄球训练营，与职业教练面对面，磨炼技艺，挑战自我。",
+  description: "开启你们的职业橄榄球梦想。加入精英美式橄榄球训练营，与职业教练面对面，磨炼技艺，挑战自我。",
 };
 
 export default function RootLayout({
