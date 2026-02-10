@@ -14,7 +14,7 @@ env:
   COOLIFY_API_TOKEN: 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313 # 建议放在 Secrets 里，或者如你之前写死在 env (不推荐写死 token)
   
   # 固定配置 (Hardcoded Values)
-  APP_NAME: "football-docker-test-002"           # 【重要】你的应用名称，用于查找和创建
+  APP_NAME: "football-docker-test-003"           # 【重要】你的应用名称，用于查找和创建
   PROJECT_UUID: "wc8o4k44w4gwos4k84kw0s4o"
   SERVER_UUID: "cskw4kcs8w8gsk8scoocsg00"
   ENVIRONMENT_UUID: "wwcos4gg88w44o44ckogsww4"
@@ -47,7 +47,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/football-docker-test:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/footballmytest:latest
 
       # 3. 自动化部署逻辑 (核心修改)
       - name: Handle Coolify Deployment
