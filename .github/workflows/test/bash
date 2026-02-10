@@ -29,5 +29,5 @@ curl -s -X POST "http://20.55.88.188:8000/api/v1/applications/dockerimage" \
                 "instant_deploy": false
               }'
 
-curl -s -X POST "http://20.55.88.188:8000/api/v1/deploy?uuid=bcwck8o0kg4kgo00oo8k08s8&force=true" \
+curl -s -X POST "http://20.55.88.188:8000/api/v1/deploy?uuid=igcs0o004gwcso4480048w8k&force=true" \
             -H "Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313"
