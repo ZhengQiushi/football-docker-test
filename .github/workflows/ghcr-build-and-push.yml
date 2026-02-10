@@ -61,6 +61,14 @@ jobs:
             # commit SHA 短版本
             type=sha,prefix=
 
+      - name: Prepare Image URL
+        id: image_info
+        run: |
+          # 从 metadata 中提取第一个 tag（通常是包含 registry 的完整路径）
+          # docker/metadata-action 的 tags 输出是换行分隔的字符串
+          FULL_IMAGE=$(echo "${{ steps.meta.outputs.tags }}" | head -n 1)
+          echo "full_image=$FULL_IMAGE" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
@@ -111,7 +119,7 @@ jobs:
                 "server_uuid": "${{ env.SERVER_UUID }}",
                 "environment_uuid": "${{ env.ENVIRONMENT_UUID }}",
                 "name": "${{ env.APP_NAME }}",
-                "docker_registry_image_name": "$(echo "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest" | tr '[:upper:]' '[:lower:]')",
+                "docker_registry_image_name": "${{ steps.image_info.outputs.full_image }}",
                 "ports_exposes": "${{ env.PORTS }}",
                 "instant_deploy": false
               }')
