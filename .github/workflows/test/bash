@@ -1,0 +1,33 @@
+curl -s -X POST "http://20.55.88.188:8000/api/v1/applications/dockerimage" \
+              -H "Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "project_uuid": "wc8o4k44w4gwos4k84kw0s4o", 
+                "server_uuid": "cskw4kcs8w8gsk8scoocsg00",
+                "environment_name": "production",
+                "environment_uuid": "wwcos4gg88w44o44ckogsww4",
+                "docker_registry_image_name": "ghcr.io/zhengqiushi/football-docker-test:latest",
+                "ports_exposes": "3000"
+              }'
+
+curl -s -H "Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313" \
+            "http://20.55.88.188:8000/api/v1/applications" \
+            | jq -r --arg name "football-docker-test-001" --arg project "wc8o4k44w4gwos4k84kw0s4o" \
+            '.[] | select(.name == $name) | .uuid'
+
+
+curl -s -X POST "http://20.55.88.188:8000/api/v1/applications/dockerimage" \
+              -H "Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "project_uuid": "wc8o4k44w4gwos4k84kw0s4o", 
+                "server_uuid": "cskw4kcs8w8gsk8scoocsg00",
+                "environment_uuid": "wwcos4gg88w44o44ckogsww4",
+                "name": "football-docker-test-001",
+                "docker_registry_image_name": "ghcr.io/zhengqiushi/football-docker-test:latest",
+                "ports_exposes": "3000",
+                "instant_deploy": false
+              }'
+
+curl -s -X POST "http://20.55.88.188:8000/api/v1/deploy?uuid=bcwck8o0kg4kgo00oo8k08s8&force=true" \
+            -H "Authorization: Bearer 1|gQ5G1DptQL7SXisiolFUN6CIt0WPweHbunchaY1b33fd4313"
