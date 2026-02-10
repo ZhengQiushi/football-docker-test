@@ -42,12 +42,35 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. 提取小写镜像名并编译推送
-      - name: Build and Push Image
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            # 分支名作为标签
+            type=ref,event=branch
+            # PR 编号作为标签
+            type=ref,event=pr
+            # 语义化版本
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            # main 分支自动打 latest
+            type=raw,value=latest,enable={{is_default_branch}}
+            # commit SHA 短版本
+            type=sha,prefix=
+
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          push: true
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          file: ./Dockerfile
+          platforms: linux/amd64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       # 3. 自动化部署逻辑 (核心修改)
       - name: Handle Coolify Deployment
