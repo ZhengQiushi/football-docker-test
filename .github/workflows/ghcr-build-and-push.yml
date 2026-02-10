@@ -104,7 +104,7 @@ jobs:
           TARGET_UUID=$(curl -s -H "Authorization: Bearer ${{ env.COOLIFY_API_TOKEN }}" \
             "${{ env.COOLIFY_URL }}/api/v1/applications" \
             | jq -r --arg name "${{ env.APP_NAME }}" --arg project "${{ env.PROJECT_UUID }}" \
-            '.[] | select(.name == $name and .project_uuid == $project) | .uuid')
+            '.[] | select(.name == $name) | .uuid')
 
           if [ -z "$TARGET_UUID" ] || [ "$TARGET_UUID" == "null" ]; then
             echo "应用不存在，正在创建新应用..."
