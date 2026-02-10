@@ -41,13 +41,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. 编译并推送镜像
+      # 2. 提取小写镜像名并编译推送
       - name: Build and Push Image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/football-docker-test:latest
 
       # 3. 自动化部署逻辑 (核心修改)
       - name: Handle Coolify Deployment
@@ -76,7 +76,7 @@ jobs:
                 "server_uuid": "${{ env.SERVER_UUID }}",
                 "environment_uuid": "${{ env.ENVIRONMENT_UUID }}",
                 "name": "${{ env.APP_NAME }}",
-                "docker_registry_image_name": "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest",
+                "docker_registry_image_name": "${{ env.REGISTRY }}/${{ github.repository_owner }}/football-docker-test:latest",
                 "ports_exposes": "${{ env.PORTS }}",
                 "instant_deploy": false
               }')
